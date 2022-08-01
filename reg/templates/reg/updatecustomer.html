@@ -1,0 +1,49 @@
+{% extends 'reg/base.html' %}
+
+
+
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid jumbo-color">
+    <div class="container">
+        <br>
+        <h1 class="text-center display-4 font-weight-bold">Update Customer Information {{id}}</h1>
+        <h6 class="lead text-center">
+            {% if messages %}
+            {% for message in messages %}
+            <div {% if message.tags %} class="{{ messages.tags}} text-warning" {% endif %}>
+                {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </h6>
+        <br>
+        <div class="col-sm-8 offset-2">
+            <form action="{% url 'updatedata' id %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4">Name {{formm.name}}</div>
+                    <div class="col-md-4">Gender{{formm.gender}}</div>
+                    <div class="col-md-4">Age{{formm.age}}</div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-6">Email{{formm.email}}</div>
+                    <div class="col-md-6">Mobile{{formm.mobile}}</div>           
+                </div><br>  
+                <div>
+                    <p>Complaints{{formm.complaints}}</p>
+                    <p>Address {{formm.address}}</p>
+                    <p>Pulse {{formm.pulse}}</p>
+                    <p>Blood Pressure {{formm.blood_pressure}}</p>
+                    <p>Temprature {{formm.temprature}}</p>
+                    <p>Blood Sugar Level {{formm.blood_suger_level}}</p>
+                    <p>Genral Exams {{formm.genral_exams}}</p>
+                </div>
+                <input type="submit" class="btn btnnn" value="Update">
+            </form>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+    {% endblock content %}
