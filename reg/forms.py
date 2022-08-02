@@ -45,6 +45,6 @@ class CustomerReg(forms.ModelForm):
             'blood_pressure': forms.TextInput(attrs={'class':'form-control'}),
             'temprature': forms.TextInput(attrs={'class':'form-control'}),
             'blood_suger_level': forms.TextInput(attrs={'class':'form-control'}),
-            'genral_exams': forms.TextInput(attrs={'class':'form-control'}),
+            'genral_exams': forms.Textarea(attrs={'class':'form-control',"rows":3, "cols":5}),
             }
 

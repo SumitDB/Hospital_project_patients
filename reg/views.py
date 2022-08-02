@@ -118,4 +118,9 @@ def View_data(request,id):
         return HttpResponseRedirect('/login/')
 
 
-
+def Customers_all(request):
+    if request.user.is_authenticated:
+        cust = Customer.objects.all()
+        return render(request, 'reg/customer_all.html',{'name':request.user, 'stu':cust})
+    else:
+        return HttpResponseRedirect('/login/')

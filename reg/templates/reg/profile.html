@@ -24,16 +24,21 @@
                     </div><br>
                     <div class="row">
                         <div class="col-md-6">Email{{formm.email}}</div>
-                        <div class="col-md-6">Mobile{{formm.mobile}}</div>   
-                                           
-                    </div><br>  
+                        <div class="col-md-6">Mobile{{formm.mobile}}</div>
+
+                    </div><br>
                     <div>
                         <p>Complaints{{formm.complaints}}</p>
                         <p>Address {{formm.address}}</p>
-                        <p>Pulse {{formm.pulse}}</p>
-                        <p>Blood Pressure {{formm.blood_pressure}}</p>
-                        <p>Temprature {{formm.temprature}}</p>
-                        <p>Blood Sugar Level {{formm.blood_suger_level}}</p>
+                        <div class="row">
+                            <div class="col-md-6">Pulse {{formm.pulse}}</div>
+                            <div class="col-md-6">Blood Pressure {{formm.blood_pressure}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">Temprature {{formm.temprature}}</div>
+                            <div class="col-md-6">Blood Sugar Level {{formm.blood_suger_level}}</div>
+                        </div>
+
                         <p>Genral Exams {{formm.genral_exams}}</p>
                     </div>
                     <input type="submit" class="btn btnnn" value="Add">
