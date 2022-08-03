@@ -1,91 +1,54 @@
 {% extends 'reg/base.html' %}
 
 {% block content %}
+
 <div class="jumbotron jumbotron-fluid jumbo-color">
-    <div class=" col-sm-12">
-        <div class="container-fluid">
-            <br>
-            <div class="d-flex align-items-center justify-content-center">
-                <br>
-                <br>
-                <br>
-                {% if stu %}
-                <div class="col-sm-12">
-                    <h3 class="text-center display-4 font-weight-bold">Customers</h3>
-                    
-                    
-                    <br>
-                    <h6 class="lead text-center">
-                        {% if messages %}
-                        {% for message in messages %}
-                        <div {% if message.tags %} class="{{ messages.tags}} text-warning" {% endif %}>
-                            {{message}}
-                        </div>
-                        {% endfor %}
-                        {% endif %}
-                    </h6>
-                    <div class="float-end"><a  href="{% url 'customer' %}" class="btn tablecolor1" >View less fields</a></div>
-                    <br><br>
-                    <table class="table table-bordered">
-                        <thead class=" thead-dark">
-                            <tr class="tablecolor2 align-middle ">
-                                <th scope="col">Id</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">Gender</th>
-                                <th scope="col" id="e1" >Email</th>
-                                <th scope="col" id="m1" >Mobile</th>
-                                <th scope="col">Address</th>
-                                <th scope="col" id="c1" >City</th>
-                                <th scope="col">Complaints</th>
-                                <th scope="col" id="p1">Pulse</th>
-                                <th scope="col" id="bp1">Blood Pressure</th>
-                                <th scope="col" id="t1">Temprature</th>
-                                <th scope="col" id="bsl1">Blood Suger Level</th>
-                                <th scope="col">Genral exams</th>
-                                <th scope="col">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for st in stu %}
-                            <tr class="tablecolor1 align-middle ">
-                                <th>{{ st.id }}</th>
-                                <td>{{ st.name }}</td>
-                                <td>{{ st.age }}</td>
-                                <td>{{ st.gender }}</td>
-                                <td>{{ st.email }}</td>
-                                <td>{{ st.mobile }}</td>
-                                <td>{{ st.address }}</td>
-                                <td>{{ st.city }}</td>
-                                <td>{{ st.complaints }}</td>
-                                <td>{{ st.pulse }}</td>
-                                <td>{{ st.blood_pressure }}</td>
-                                <td>{{ st.temprature }}</td>
-                                <td>{{ st.blood_suger_level }}</td>
-                                <td>{{ st.genral_exams }}</td>
-                                <td class="text-center">
-                                    
-                                    <a href="{%  url 'viewdata' st.id %}" class="btn ">Edit</a>
-                                    <form action="{% url 'deletedata' st.id %}" method="POST" class="d-inline ">
-                                        {% csrf_token %}
-                                        <input type="submit" class="btn"
-                                        onclick="return confirm('Do you really want to delete?');" value="Delete">
-                                    </form>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    {% else %}
-                    <br>
-                    <br>
-                    <h4 class=" text-center "> Add Customers to View</h4>
-                </div>
-                {% endif %}
+    <div class="container">
+        <br>
+        <h1 class="text-center display-4 font-weight-bold">Update Customer Information </h1>
+        <h6 class="lead text-center">
+            {% if messages %}
+            {% for message in messages %}
+            <div {% if message.tags %} class="{{ messages.tags}} text-warning" {% endif %}>
+                {{message}}
             </div>
+            {% endfor %}
+            {% endif %}
+        </h6>
+        <br>
+        <div class="col-sm-8 offset-2">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4">Name {{formm.name}}</div>
+                    <div class="col-md-4">Gender{{formm.gender}}</div>
+                    <div class="col-md-4">Age{{formm.age}}</div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-6">Email{{formm.email}}</div>
+                    <div class="col-md-6">Mobile{{formm.mobile}}</div>
+
+                </div><br>
+                <div>
+                    <p>Complaints{{formm.complaints}}</p>
+                    <p>Address {{formm.address}}</p>
+                    <div class="row">
+                        <div class="col-md-6">Pulse {{formm.pulse}}</div>
+                        <div class="col-md-6">Blood Pressure {{formm.blood_pressure}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">Temprature {{formm.temprature}}</div>
+                        <div class="col-md-6">Blood Sugar Level {{formm.blood_suger_level}}</div>
+                    </div>
+
+                    <p>Genral Exams {{formm.genral_exams}}</p>
+                </div> 
+            </form>
+            <div class=""><a  href="{% url 'customer' %}" class="btn tablecolor1" >Back</a></div>
+            <br>
+            <br>
         </div>
     </div>
-    <br><br><br>
-</div>
+</div>                    
 
 {% endblock content %}

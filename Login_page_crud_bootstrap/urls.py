@@ -27,7 +27,7 @@ urlpatterns = [
     path('delete/<int:id>/', views.Delete_data, name='deletedata'),
     path('customer/', views.Customers, name='customer'),
     path('viewdata/<int:id>', views.View_data, name='viewdata'),
-    path('customerall/', views.Customers_all, name='viewdata_all'),
+    path('customerall/<int:id>', views.Customers_all, name='viewdata_all'),
     
 
 ]

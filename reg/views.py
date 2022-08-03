@@ -53,10 +53,11 @@ def User_profile(request):
                 pl = fmm.cleaned_data['pulse']
                 bp = fmm.cleaned_data['blood_pressure']
                 bsl =fmm.cleaned_data['blood_suger_level']
+                temp = fmm.cleaned_data['temprature']
                 gex =fmm.cleaned_data['genral_exams']
                 ct = fmm.cleaned_data['city']
                 reg = Customer( name=nm, age=ag, gender=ge, email=em, mobile=mb, address=ad, complaints=com, pulse=pl, blood_pressure=bp,
-                blood_suger_level=bsl,genral_exams=gex,city=ct,)
+                blood_suger_level=bsl,genral_exams=gex,city=ct,temprature=temp)
                 reg.save()
                 messages.success(request,'You have successfully added the customer !!')
                 fmm = CustomerReg()
@@ -118,9 +119,10 @@ def View_data(request,id):
         return HttpResponseRedirect('/login/')
 
 
-def Customers_all(request):
+def Customers_all(request, id):
     if request.user.is_authenticated:
-        cust = Customer.objects.all()
-        return render(request, 'reg/customer_all.html',{'name':request.user, 'stu':cust})
+        pi = Customer.objects.get(pk=id)
+        fmm = CustomerReg(instance=pi) 
+        return render(request, 'reg/customer_all.html',{ 'formm':fmm})
     else:
         return HttpResponseRedirect('/login/')

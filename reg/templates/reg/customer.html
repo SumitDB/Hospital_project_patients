@@ -22,7 +22,7 @@
                         {% endfor %}
                         {% endif %}
                     </h6>
-                    <div class="float-end"><a  href="{%  url 'viewdata_all' %}" class="btn tablecolor1 " >View all fields</a></div>
+                    <div class="float-end"></div>
                     <br>
                     <br>
 
@@ -50,11 +50,11 @@
                                 <td>{{ st.complaints }}</td>
                                 <td>{{ st.genral_exams }}</td>
                                 <td class="text-center">
-                                    
-                                    <a href="{%  url 'viewdata' st.id %}" class="btn ">Edit</a>
+                                    <a  href="{%  url 'viewdata_all' st.id %}" class="btn btn-sm tablecolor2  " >View </a>
+                                    <a href="{%  url 'viewdata' st.id %}" class="btn btn-sm tablecolor2">Edit</a>
                                     <form action="{% url 'deletedata' st.id %}" method="POST" class="d-inline ">
                                         {% csrf_token %}
-                                        <input type="submit" class="btn"
+                                        <input type="submit" class="btn btn-sm tablecolor2"
                                             onclick="return confirm('Do you really want to delete?');" value="Delete">
                                     </form>
                                 </td>
