@@ -38,7 +38,7 @@ class CustomerReg(forms.ModelForm):
             'gender': forms.Select(attrs={'class':'form-control'}), 
             'email': forms.EmailInput(attrs={'class':'form-control'}),
             'mobile': forms.NumberInput(attrs={'class':'form-control'}),
-            'address': forms.Textarea(attrs={'class':'form-control',"rows":3, "cols":5}),
+            'address': forms.Textarea(attrs={'class':'form-control',"rows":1, "cols":5}),
             'city': forms.TextInput(attrs={'class':'form-control'}),
             'complaints': forms.Textarea(attrs={'class':'form-control',"rows":3, "cols":5}),
             'pulse': forms.TextInput(attrs={'class':'form-control'}),

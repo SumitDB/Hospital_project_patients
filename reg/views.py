@@ -1,4 +1,3 @@
-
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
@@ -17,7 +16,6 @@ def Sign_up(request):
     else:
         fm = SignUpForm()
     return render (request, 'reg/signup.html',{'form':fm})
-
 
 #Login View
 def User_login(request):
@@ -52,9 +50,9 @@ def User_profile(request):
                 com = fmm.cleaned_data['complaints']
                 pl = fmm.cleaned_data['pulse']
                 bp = fmm.cleaned_data['blood_pressure']
-                bsl =fmm.cleaned_data['blood_suger_level']
+                bsl = fmm.cleaned_data['blood_suger_level']
                 temp = fmm.cleaned_data['temprature']
-                gex =fmm.cleaned_data['genral_exams']
+                gex = fmm.cleaned_data['genral_exams']
                 ct = fmm.cleaned_data['city']
                 reg = Customer( name=nm, age=ag, gender=ge, email=em, mobile=mb, address=ad, complaints=com, pulse=pl, blood_pressure=bp,
                 blood_suger_level=bsl,genral_exams=gex,city=ct,temprature=temp)
